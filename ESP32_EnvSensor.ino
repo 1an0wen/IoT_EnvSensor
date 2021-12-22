@@ -378,7 +378,7 @@ void loop(){
           String s;
           String sdata;
           if (req == "/") {
-    /*      //Use SPIFFS to host webpage  
+          //Use SPIFFS to host webpage  
             //Serial.print("Checking data files... ");
             html_index = SPIFFS.open("/index.html", "r");
             if (html_index) {
@@ -387,15 +387,13 @@ void loop(){
               }
               Serial.println("HTML published OK.");
             } else {
-     */       //Use code to push webpage
+              //Use code to push webpage
               //test content insert root webpage in here
               IPAddress ip = WiFi.localIP();
               String ipStr = String(ip[0]) + '.' + String(ip[1]) + '.' + String(ip[2]) + '.' + String(ip[3]);
   
               // HTML string
               sdata = "<!DOCTYPE HTML>\r\n<html><meta http-equiv=Content-Type content=text/html; charset=utf-8/><title>espSensor</title>";
-              sdata += "<link rel=stylesheet href=https://research.ianowen.uk/assets/css/bootstrap.min.css type=text/css  />";
-              sdata += "<link rel=stylesheet href=https://research.ianowen.uk/style.css type=text/css />";
               sdata += "</head><body><div><h2>Hello from espSensor at ";
               sdata += ipStr;
               sdata += "</h2></div><div>";
@@ -425,7 +423,7 @@ void loop(){
               s += "\r\n\r\n";
               s += sdata;
               //Serial.println(" | Sending 200");
-     //       }
+            }
           } else {
               s = "HTTP/1.1 404 Not Found\r\n\r\n";
               //Serial.println("Sending 404");
