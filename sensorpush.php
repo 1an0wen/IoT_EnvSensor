@@ -41,7 +41,7 @@
 	$link = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 	
 	if (mysqli_connect_errno()){
-  		printf("Failed to connect to database.");
+  		printf("SOR#Failed to connect to database.#EOR");
   	}
   	
 	$active = 1;
@@ -59,9 +59,9 @@
 			} 
 		}
 		if ( $respo == 1 ){
-			printf("Database error.");
+			printf("SOR#Database error.#EOR");
 		} else { 
-			printf("Data upload successful.");
+			printf("SOR#Data upload successful.#EOR");
 		}
 		
 	} else { 
@@ -74,17 +74,17 @@
 				$sqlDevice = "INSERT INTO devices (deviceID, email, active, regDate) VALUES (".$deviceID.", 'DEVICE REGISTERED', 1, ".$senDate[0].")";
 				$devCHK = mysqli_query($link,$sqlDevice);
 				if ( mysqli_error($link) ){
-					printf("Device registration failed.");		  
+					printf("SOR#Device registration failed.#EOR");		  
 				} else { 
-					printf("Device registration successful.");
+					printf("SOR#Device registration successful.#EOR");
 				}
 			} else {
-				printf ("Device registration failed.");
+				printf ("SOR#Device registration failed.#EOR");
 			} 
 		} else {
 			$sqlDEN = "INSERT INTO invdev (userIP, deviceID) VALUES (".$user_ip.",x'".$deviceID."')";
 			$results = mysqli_query($link,$sqlDEN);
-			printf("Device: ".$deviceID." deactivated.");	
+			printf("SOR#Device: ".$deviceID." deactivated.#EOR");	
 		}
 	} 
 ?>
