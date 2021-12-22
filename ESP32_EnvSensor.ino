@@ -426,12 +426,12 @@ void loop(){
             }
           } else {
               s = "HTTP/1.1 404 Not Found\r\n\r\n";
-              //Serial.println("Sending 404");
+              Serial.println("Sending 404");
           }
           /* send response back to client and then close connect since HTTP do not keep connection*/
           webclient.print(s);
           Serial.println(s);
-          //webclient.flush();
+          webclient.flush();
         }
       }
       webclient.stop();
@@ -715,7 +715,7 @@ void loop(){
         Serial.print(" | Response: ");
         Serial.println(repDBStatus);
 
-        //update: if repDBStatus is OK then - successful upload.
+        //if repDBStatus is OK then - successful upload.
         
         //clear data files and re-open for use on next cycle
         dataAir.close();
